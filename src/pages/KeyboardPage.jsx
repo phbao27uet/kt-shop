@@ -1,7 +1,9 @@
 import React from 'react'
 
+import Helmet from '../components/Helmet'
+
 const KeyboardPage = () => {
-    return <div>KeyBoardPage</div>
+    return <Helmet title="Bàn phím">KeyBoardPage</Helmet>
 }
 
 export default KeyboardPage

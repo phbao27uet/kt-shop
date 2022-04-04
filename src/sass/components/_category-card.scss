@@ -1,0 +1,42 @@
+.category-card {
+    position: relative;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 8px;
+
+    &:hover &__img {
+        transform: scale(1.1);
+    }
+
+    &__img {
+        transition: all 0.5s ease-in-out;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__info {
+        position: absolute;
+        bottom: 15%;
+        left: 10%;
+
+        &__title {
+            color: $btn-main-color;
+            letter-spacing: 2.4px;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+        }
+
+        &__btn {
+            display: inline-block;
+            padding: 1rem 2.25rem;
+            background-color: $btn-main-color;
+            color: $txt-main-color;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    }
+}

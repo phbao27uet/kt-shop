@@ -1,0 +1,14 @@
+.logo {
+    h1 {
+        font-size: 40px;
+        background: -webkit-linear-gradient(
+            43deg,
+            #4158d0 0%,
+            #c850c0 46%,
+            #ffcc70 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        width: max-content;
+    }
+}

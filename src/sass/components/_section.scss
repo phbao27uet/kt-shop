@@ -1,0 +1,14 @@
+.section {
+    margin-bottom: 70px;
+
+    & > * ~ * {
+        margin-top: 70px;
+    }
+
+    &__title {
+        text-transform: capitalize;
+        font-size: 2rem;
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+    }
+}

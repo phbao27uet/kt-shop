@@ -1,0 +1,18 @@
+.footer {
+    padding: 50px 0;
+    box-shadow: $box-shadow;
+
+    &__title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    &__content {
+        p {
+            margin-bottom: 12px;
+            @include flex(flex-start, flex-start);
+            gap: 8px;
+        }
+    }
+}

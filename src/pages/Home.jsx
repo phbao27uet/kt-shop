@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { getKeyboard } from '../redux/keyboard/keyboardSlice'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import {
     getKeyboardsSelector,
@@ -40,12 +38,6 @@ const categories = [
 ]
 
 const Home = () => {
-    const dispatch = useDispatch()
-
-    useEffect(async () => {
-        dispatch(getKeyboard())
-    }, [])
-
     const newKeyboardData = useSelector(getNewKeyboardsSelector)
     const keyboardData = useSelector(getKeyboardsSelector)
 

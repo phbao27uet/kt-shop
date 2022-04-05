@@ -26,7 +26,7 @@ const SwitchPage = () => {
                     <Filter data={data} />
                 </div>
                 <div className="catalog__content">
-                    <ProductList products={{}} />
+                    <ProductList products={[]} />
                 </div>
             </div>
         </Helmet>

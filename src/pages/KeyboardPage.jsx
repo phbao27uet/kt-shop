@@ -1,8 +1,12 @@
 import React from 'react'
 
+import { useSelector } from 'react-redux'
+
 import Helmet from '../components/Helmet'
 import Filter from '../components/Filter'
 import ProductList from '../components/ProductList'
+
+import { getAllKeyboardSelector } from '../redux/selectors'
 
 const TYPE_KEYCAP = ['PBT Double-Shot', 'PBT Dye-Subbed']
 
@@ -38,6 +42,10 @@ const data = [
 ]
 
 const KeyboardPage = () => {
+    const products = useSelector(getAllKeyboardSelector)
+
+    console.log({ products })
+
     return (
         <Helmet title="Keyboard">
             <div className="catalog">
@@ -45,7 +53,10 @@ const KeyboardPage = () => {
                     <Filter data={data} />
                 </div>
                 <div className="catalog__content">
-                    <ProductList products={{}} />
+                    <div className="catalog__content__sort">Sort</div>
+                    <div className="catalog__content__list">
+                        <ProductList products={products} />
+                    </div>
                 </div>
             </div>
         </Helmet>

@@ -1,0 +1,12 @@
+.catalog {
+    @include flex(flex-start, flex-start);
+    padding-top: 30px;
+
+    &__filter {
+        width: 20%;
+    }
+
+    &__content {
+        width: 80%;
+    }
+}

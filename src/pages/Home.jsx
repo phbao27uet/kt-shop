@@ -53,7 +53,7 @@ const Home = () => {
     // console.log({ keyboardData })
 
     return (
-        <Helmet title="Trang chủ">
+        <Helmet title="More inspirational" option="1">
             <Slider />
 
             <Section>

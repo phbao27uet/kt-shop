@@ -34,9 +34,23 @@
             display: inline-block;
             padding: 1rem 2.25rem;
             background-color: $btn-main-color;
-            color: $txt-main-color;
-            font-weight: 300;
+            color: $btn-main-color;
+            font-weight: 500;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
     }
+}
+
+.allsides-8 {
+    background: linear-gradient($main-bg 0 0) 0 100%,
+        linear-gradient($main-bg 0 0) 0 100%,
+        linear-gradient($main-bg 0 0) 100% 0,
+        linear-gradient($main-bg 0 0) 100% 0;
+    background-size: 20px 3px, 3px 20px;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.allsides-8:hover {
+    background-position: 100% 100%, 0 0, 0 0, 100% 100%;
 }

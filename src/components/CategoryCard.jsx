@@ -12,7 +12,7 @@ const CategoryCard = (props) => {
             <div className="category-card__info">
                 <div className="category-card__info__title">{props.title}</div>
                 <Link to={`/${props.slug}`}>
-                    <div className="category-card__info__btn">
+                    <div className="category-card__info__btn allsides-8">
                         <p>Xem thêm</p>
                     </div>
                 </Link>

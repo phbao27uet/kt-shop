@@ -19,7 +19,7 @@ const mainNav = [
     },
     {
         display_name: 'switch',
-        path: '/swicth',
+        path: '/switch',
     },
     {
         display_name: 'Liên hệ',

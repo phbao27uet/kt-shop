@@ -4,12 +4,21 @@ import PropTypes from 'prop-types'
 const Checkbox = (props) => {
     const inputRef = useRef(null)
 
+    const onChange = (e) => {
+        // console.log(e.target.value, e.target.checked)
+        if (props.onChange) {
+            props.onChange(inputRef.current)
+        }
+    }
+
     return (
         <label className="custom-checkbox">
             <input
                 ref={inputRef}
                 type="checkbox"
-                onChange={(e) => console.log(e.target.checked)}
+                onChange={onChange}
+                value={props.value}
+                checked={props.checked}
             />
             <span className="custom-checkbox__checkmark">
                 <i className="bx bx-check"></i>
@@ -21,6 +30,7 @@ const Checkbox = (props) => {
 
 Checkbox.propTypes = {
     label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     checked: PropTypes.bool,
 }
 

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Button from './Button'
 
+import numberWithCommas from '../utils/numberWithCommas'
+
 const ProductCard = (props) => {
     return (
         <div className="product-card">
@@ -14,9 +16,9 @@ const ProductCard = (props) => {
                 </div>
                 <h3 className="product-card__name">{props.name}</h3>
                 <div className="product-card__price">
-                    <strong>{props.price}</strong>
+                    <strong>{numberWithCommas(props.price)} ₫</strong>
                     <span className="product-card__price__old">
-                        <del>{props.price}</del>
+                        <del>{numberWithCommas(props.price + 150000)} ₫</del>
                     </span>
                 </div>
             </Link>
@@ -31,7 +33,7 @@ ProductCard.propTypes = {
     name: PropTypes.string.isRequired,
     img1: PropTypes.string.isRequired,
     img2: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
     slug: PropTypes.string.isRequired,
 }
 

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ a {
 }
 
 a:hover {
-  color: #4158d0;
+  color: #c9d6df;
 }
 
 .color-blue {
@@ -84,11 +84,11 @@ a:hover {
 }
 
 .color-main {
-  color: #4158d0;
+  color: #c9d6df;
 }
 
 .bg-main {
-  background-color: #4158d0;
+  background-color: #c9d6df;
 }
 
 .grid-col-0 {
@@ -483,7 +483,7 @@ a:hover {
 }
 
 .header__navbar__item.active {
-  color: #4158d0;
+  color: #c9d6df;
 }
 
 .header__actions {
@@ -514,7 +514,7 @@ a:hover {
 }
 
 .header__actions__item:hover {
-  color: #4158d0;
+  color: #c9d6df;
 }
 
 .logo h1 {
@@ -525,6 +525,7 @@ a:hover {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {
@@ -614,7 +615,7 @@ a:hover {
 
 .slider .swiper-pagination-bullet-active {
   width: 50px;
-  background-color: #4158d0;
+  background-color: #c9d6df;
 }
 
 .section {
@@ -745,13 +746,29 @@ a:hover {
 }
 
 .btn__txt {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 1rem 2rem;
   letter-spacing: 2.4px;
 }
 
-.btn-sm .btn__txt {
+.btn__txt i {
+  font-size: 1.5rem;
+}
+
+.btn-md .btn__txt {
   padding: 0.75rem 1.5rem;
+}
+
+.btn-sm .btn__txt {
+  padding: 0.5rem 1rem;
 }
 
 .btn-block {
@@ -830,17 +847,96 @@ a:hover {
   padding-top: 30px;
 }
 
+@media only screen and (max-width: 1024px) {
+  .catalog {
+    padding-top: unset;
+  }
+}
+
 .catalog__filter {
   width: 20%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .catalog__filter {
+    width: 0%;
+  }
 }
 
 .catalog__content {
   width: 80%;
 }
 
+@media only screen and (max-width: 1024px) {
+  .catalog__content {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: 100%;
+  }
+}
+
 .filter__heading {
   letter-spacing: 2.4px;
   font-size: 1.5rem;
+}
+
+.filter__toggle {
+  display: none;
+  position: fixed;
+  top: 40%;
+  right: 0;
+  z-index: 101;
+  -webkit-transition: right 0.3s ease-in-out;
+  transition: right 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1024px) {
+  .filter__toggle {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .filter__mobile__container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%;
+    background: #fff;
+    z-index: 101;
+    padding-top: 1.5rem;
+    padding-left: 2rem;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .filter__mobile__container {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .filter.active .filter__toggle {
+    right: 30%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .filter.active .filter__toggle {
+    right: 60%;
+  }
+}
+
+.filter.active .filter__mobile__container {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .filter__categories {
@@ -862,5 +958,120 @@ a:hover {
 
 .filter__container {
   margin-top: 1.75rem;
+}
+
+.filter__widget {
+  margin-top: 1rem;
+}
+
+.filter__widget__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.filter__widget__content {
+  margin-top: 10px;
+}
+
+.filter__widget__content__item ~ .filter__widget__content__item {
+  margin-top: 8px;
+}
+
+.custom-checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  cursor: pointer;
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+input:checked ~ .custom-checkbox__checkmark {
+  background-color: #c9d6df;
+}
+
+input:checked ~ .custom-checkbox__checkmark i {
+  opacity: 1;
+  color: #fff;
+}
+
+.custom-checkbox__checkmark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid #ebebeb;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+.custom-checkbox__checkmark i {
+  opacity: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  top: -1px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.custom-checkbox__label {
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  color: #6f6f6f;
+}
+
+.custom-checkbox:hover .custom-checkbox__label {
+  color: #c9d6df;
+}
+
+input:checked ~ .custom-checkbox__label {
+  color: #c9d6df;
+}
+
+.sort {
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.sort__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.sort .ant-radio-checked .ant-radio-inner {
+  border-color: #c9d6df !important;
+}
+
+.sort .ant-radio-checked .ant-radio-inner:after {
+  background-color: #c9d6df;
+}
+
+.sort .ant-radio:hover .ant-radio-inner {
+  border-color: #c9d6df;
+}
+
+.sort .ant-radio-wrapper span {
+  font-size: 1rem;
+  font-weight: 600;
 }
 /*# sourceMappingURL=index.css.map */

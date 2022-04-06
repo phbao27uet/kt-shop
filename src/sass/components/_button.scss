@@ -21,13 +21,21 @@
     }
 
     &__txt {
-        display: block;
+        @include flex(center, center);
         padding: 1rem 2rem;
         letter-spacing: 2.4px;
+
+        i {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-md &__txt {
+        padding: 0.75rem 1.5rem;
     }
 
     &-sm &__txt {
-        padding: 0.75rem 1.5rem;
+        padding: 0.5rem 1rem;
     }
 
     &-block {

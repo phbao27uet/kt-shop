@@ -6,6 +6,7 @@
         -webkit-text-fill-color: transparent;
         width: max-content;
         font-weight: bold;
+        margin: 0;
 
         @include mobile {
             font-size: 28px;

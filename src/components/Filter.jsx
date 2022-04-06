@@ -56,7 +56,7 @@ const Filter = (props) => {
     return (
         <div ref={filterRef} className="filter">
             <div className="filter__toggle">
-                <Button size="sm" onClick={toggleFilter}>
+                <Button size="md" onClick={toggleFilter}>
                     {filterActive ? (
                         <i className="bx bx-x"></i>
                     ) : (

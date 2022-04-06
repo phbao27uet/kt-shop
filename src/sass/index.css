@@ -526,6 +526,7 @@ a:hover {
   width: -moz-max-content;
   width: max-content;
   font-weight: bold;
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -903,10 +904,11 @@ a:hover {
     top: 0;
     right: 0;
     width: 30%;
+    height: 100vh;
     background: #fff;
+    overflow-y: auto;
     z-index: 101;
-    padding-top: 1.5rem;
-    padding-left: 2rem;
+    padding: 1.5rem 0 1rem 2rem;
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
     -webkit-transition: -webkit-transform 0.3s ease-in-out;

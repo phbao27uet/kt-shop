@@ -10,6 +10,8 @@ const Checkbox = (props) => {
         }
     }
 
+    // console.log(props.value, props.checked)
+
     return (
         <label className="custom-checkbox">
             <input

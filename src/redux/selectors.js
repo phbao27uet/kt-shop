@@ -4,6 +4,10 @@ export const getAllKeyboardSelector = (state) => state.keyboard.data
 
 export const getFilterKeyboardSelector = (state) => state.keyboard.filter
 
+export const getFilterKeycapSelector = (state) => state.keycap.filter
+
+export const getFilterSwitchSelector = (state) => state.switch.filter
+
 // export const getPriceFilterSelector = (state) => state.keyboard.filter
 
 export const getSortFilterSelector = (state) => state.sortFilter.value

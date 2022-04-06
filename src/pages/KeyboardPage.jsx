@@ -7,13 +7,9 @@ import Filter from '../components/Filter'
 import ProductList from '../components/ProductList'
 import Sort from '../components/Sort'
 
-import {
-    getAllKeyboardSelector,
-    getFilterKeyboardSelector,
-    keyboardRemaningSelector,
-} from '../redux/selectors'
+import { getFilterKeyboardSelector, keyboardRemaningSelector } from '../redux/selectors'
 
-import { priceFilterChange, keyboardFilterChange } from '../redux/keyboard/keyboardSlice'
+import { keyboardFilterChange } from '../redux/keyboard/keyboardSlice'
 
 import { TITLE_LAYOUT, TITLE_KEYCAP, TITLE_SWITCH, TITLE_PRICE } from '../constants'
 

@@ -1,10 +1,12 @@
+import _ from 'lodash'
 import { createSelector } from '@reduxjs/toolkit'
-
 export const getAllKeyboardSelector = (state) => state.keyboard.data
 
 export const getFilterKeyboardSelector = (state) => state.keyboard.filter
 
 // export const getPriceFilterSelector = (state) => state.keyboard.filter
+
+export const getSortFilterSelector = (state) => state.sortFilter.value
 
 export const getNewKeyboardsSelector = createSelector(getAllKeyboardSelector, (keyboard) => {
     return [keyboard[2], keyboard[6], keyboard[8], keyboard[15]]
@@ -21,7 +23,8 @@ export const getKeyboardsSelector = createSelector(getAllKeyboardSelector, (keyb
 export const keyboardRemaningSelector = createSelector(
     getAllKeyboardSelector,
     getFilterKeyboardSelector,
-    (keyboard, filter) => {
+    getSortFilterSelector,
+    (keyboard, filter, sortFilter) => {
         let newState = [...keyboard]
 
         if (filter.layout.length > 0) {
@@ -66,7 +69,29 @@ export const keyboardRemaningSelector = createSelector(
             })
         }
 
-        console.log({ newState })
-        return newState
+        // console.log({ sortFilter })
+        // newState = sortBy(newState, sortFilter)
+        // console.log({ newState })
+
+        return sortBy(newState, sortFilter)
     },
 )
+
+const sortBy = (data, type) => {
+    switch (type) {
+        case 'alpha-asc':
+            return _.orderBy(data, ['display_name'], ['asc'])
+
+        case 'alpha-des':
+            return _.orderBy(data, ['display_name'], ['desc'])
+
+        case 'price-asc':
+            return _.orderBy(data, ['price'], ['asc'])
+
+        case 'price-des':
+            return _.orderBy(data, ['price'], ['desc'])
+
+        default:
+            return data
+    }
+}

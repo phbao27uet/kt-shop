@@ -5,10 +5,7 @@ const Button = (props) => {
     const size = props?.size ? `btn-${props.size}` : ''
 
     return (
-        <button
-            className={`btn ${size}`}
-            onClick={props?.onClick ? props.onClick : null}
-        >
+        <button className={`btn ${size}`} onClick={props?.onClick ? props.onClick : null}>
             <span className="btn__txt">{props.children}</span>
         </button>
     )

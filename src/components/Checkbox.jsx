@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 const Checkbox = (props) => {
     const inputRef = useRef(null)
 
-    const onChange = (e) => {
-        // console.log(e.target.value, e.target.checked)
+    const onChange = () => {
         if (props.onChange) {
             props.onChange(inputRef.current)
         }

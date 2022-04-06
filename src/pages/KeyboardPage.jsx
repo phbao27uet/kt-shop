@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Helmet from '../components/Helmet'
 import Filter from '../components/Filter'
 import ProductList from '../components/ProductList'
+import Sort from '../components/Sort'
 
 import {
     getAllKeyboardSelector,
@@ -44,7 +45,7 @@ const data = [
 
 const KeyboardPage = () => {
     const dispatch = useDispatch()
-    // const products = useSelector(getAllKeyboardSelector)
+
     const products = useSelector(keyboardRemaningSelector)
     const initFilter = useSelector(getFilterKeyboardSelector)
 
@@ -82,7 +83,9 @@ const KeyboardPage = () => {
                     <Filter data={data} selectFilter={selectFilter} filter={filter} />
                 </div>
                 <div className="catalog__content">
-                    <div className="catalog__content__sort">Sort</div>
+                    <div className="catalog__content__sort">
+                        <Sort />
+                    </div>
                     <div className="catalog__content__list">
                         <ProductList products={products} />
                     </div>

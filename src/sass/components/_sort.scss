@@ -1,0 +1,30 @@
+.sort {
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f5f5f5;
+
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 8px;
+    }
+
+    .ant-radio-checked .ant-radio-inner {
+        border-color: $main-color !important ;
+    }
+
+    .ant-radio-checked .ant-radio-inner:after {
+        background-color: $main-color;
+    }
+
+    .ant-radio:hover .ant-radio-inner {
+        border-color: $main-color;
+    }
+
+    .ant-radio-wrapper {
+        span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}

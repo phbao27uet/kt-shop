@@ -6,6 +6,9 @@ import { useDispatch } from 'react-redux'
 import CreateRoutes from '../router/CreateRoutes'
 import Header from './Header'
 import Footer from './Footer'
+
+import 'antd/dist/antd.css'
+
 const Layout = () => {
     const dispatch = useDispatch()
 

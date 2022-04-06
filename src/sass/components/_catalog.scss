@@ -4,9 +4,17 @@
 
     &__filter {
         width: 20%;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__content {
         width: 80%;
+
+        @include tablet {
+            width: 100%;
+        }
     }
 }

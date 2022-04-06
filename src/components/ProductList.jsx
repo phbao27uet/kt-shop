@@ -9,7 +9,7 @@ const ProductList = (props) => {
 
     return (
         <div className="product-list">
-            <Grid col={3} mdCol={2} smCol={1} gap={20}>
+            <Grid col={3} mdCol={3} smCol={1} gap={20}>
                 {products.map((item, index) => (
                     <ProductCard
                         key={index}

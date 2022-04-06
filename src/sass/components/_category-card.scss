@@ -43,10 +43,8 @@
 }
 
 .allsides-8 {
-    background: linear-gradient($main-bg 0 0) 0 100%,
-        linear-gradient($main-bg 0 0) 0 100%,
-        linear-gradient($main-bg 0 0) 100% 0,
-        linear-gradient($main-bg 0 0) 100% 0;
+    background: linear-gradient($main-bg 0 0) 0 100%, linear-gradient($main-bg 0 0) 0 100%,
+        linear-gradient($main-bg 0 0) 100% 0, linear-gradient($main-bg 0 0) 100% 0;
     background-size: 20px 3px, 3px 20px;
     background-repeat: no-repeat;
     transition: 0.5s;

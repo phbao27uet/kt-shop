@@ -90,7 +90,7 @@ const Filter = (props) => {
                                         <Checkbox
                                             label={e}
                                             value={e}
-                                            checked={filter[item.name]?.includes(e)} // Cần chú ý sửa cho KEYCAP và SWITCH
+                                            checked={filter[item.name].includes(e)} // Cần chú ý sửa cho KEYCAP và SWITCH
                                             onChange={(input) =>
                                                 selectFilter(item.title, input.checked, e)
                                             }

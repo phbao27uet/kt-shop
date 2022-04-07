@@ -62,7 +62,7 @@ const SwitchPage = () => {
                         <Sort />
                     </div>
                     <div className="catalog__content__list">
-                        <ProductList products={[]} />
+                        <ProductList products={[]} page="switch" />
                         Updating ...
                     </div>
                 </div>

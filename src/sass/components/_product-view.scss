@@ -1,0 +1,60 @@
+.product-view {
+    @include flex(flex-start, flex-start);
+
+    &__images {
+        width: 40%;
+    }
+
+    &__info {
+        padding-left: 20px;
+        width: 60%;
+
+        &__heading {
+            font-size: 1.5rem;
+            line-height: 29px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        &__item {
+            margin-top: 1.25rem;
+
+            &__price {
+                font-size: 20px;
+                font-weight: 600;
+                color: #1c1c1c;
+                display: inline-block;
+            }
+
+            &__status {
+                @include flex(center, flex-start);
+                font-size: 20px;
+                font-weight: 600;
+                color: #1c1c1c;
+
+                span {
+                    color: $main-color;
+                    margin-left: 8px;
+                }
+            }
+            // CSS cho quantity
+            &__quantity {
+                @include flex(center, flex-start);
+                border: 2px solid $main-color;
+                width: max-content;
+
+                &__btn {
+                    @include flex(center, center);
+
+                    $size: 30px;
+                    width: $size;
+                    height: $size;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -83,7 +83,7 @@ const KeyboardPage = () => {
                         <Sort />
                     </div>
                     <div className="catalog__content__list">
-                        <ProductList products={products} />
+                        <ProductList products={products} page='keyboard'/>
                     </div>
                 </div>
             </div>

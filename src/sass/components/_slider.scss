@@ -7,21 +7,21 @@
         height: auto;
     }
 
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 12px !important;
-        font-weight: 600;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-        @include flex(center, center);
-        background-color: $main-bg;
-        color: #000;
-        border-radius: 50%;
-        box-shadow: $box-shadow;
-        width: 32px;
-        height: 32px;
-    }
+    // .swiper-button-next::after,
+    // .swiper-button-prev::after {
+    //     font-size: 12px !important;
+    //     font-weight: 600;
+    // }
+    // .swiper-button-next,
+    // .swiper-button-prev {
+    //     @include flex(center, center);
+    //     background-color: $main-bg;
+    //     color: #000;
+    //     border-radius: 50%;
+    //     box-shadow: $box-shadow;
+    //     width: 32px;
+    //     height: 32px;
+    // }
 
     .swiper-button-next {
         right: 10px;
@@ -46,4 +46,28 @@
             }
         }
     }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 12px !important;
+    font-weight: 600;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    @include flex(center, center);
+    background-color: $main-bg;
+    color: #000;
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+    width: 32px;
+    height: 32px;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
 }

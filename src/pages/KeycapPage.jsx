@@ -60,7 +60,7 @@ const KeycapPage = () => {
                         <Sort />
                     </div>
                     <div className="catalog__content__list">
-                        <ProductList products={[]} />
+                        <ProductList products={[]} page='keycap'/>
                         Updating ...
                     </div>
                 </div>

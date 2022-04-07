@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import { createSelector } from '@reduxjs/toolkit'
+
 export const getAllKeyboardSelector = (state) => state.keyboard.data
 
 export const getFilterKeyboardSelector = (state) => state.keyboard.filter
@@ -8,9 +9,9 @@ export const getFilterKeycapSelector = (state) => state.keycap.filter
 
 export const getFilterSwitchSelector = (state) => state.switch.filter
 
-// export const getPriceFilterSelector = (state) => state.keyboard.filter
-
 export const getSortFilterSelector = (state) => state.sortFilter.value
+
+export const getSlugSelector = (state) => state.product.slug
 
 export const getNewKeyboardsSelector = createSelector(getAllKeyboardSelector, (keyboard) => {
     return [keyboard[2], keyboard[6], keyboard[8], keyboard[15]]
@@ -78,6 +79,16 @@ export const keyboardRemaningSelector = createSelector(
         // console.log({ newState })
 
         return sortBy(newState, sortFilter)
+    },
+)
+
+export const getProductBySlugSelector = createSelector(
+    getAllKeyboardSelector,
+    getSlugSelector,
+    (keyboard, slug) => {
+        const product = keyboard.find((item) => item.path === slug)
+
+        return product || {}
     },
 )
 

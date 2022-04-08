@@ -41,4 +41,12 @@
     &-block {
         width: 100%;
     }
+    //
+    &-btn-cart {
+        min-width: 350px;
+    }
+
+    &-btn-cart &__txt {
+        padding: 0.5rem 1rem;
+    }
 }

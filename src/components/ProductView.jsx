@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import ProductImageSlider from './ProductImageSlider'
+import Button from './Button'
 
 import numberWithCommas from '../utils/numberWithCommas'
 
@@ -22,6 +23,15 @@ const ProductView = (props) => {
         window.scrollTo(0, 0)
     }, [product])
 
+    const updateQuantity = (type) => {
+        if (type === 'minus') {
+            const index = quantity > 1 ? quantity - 1 : quantity
+            setQuantity(index)
+        } else if (type === 'plus') {
+            setQuantity(quantity + 1)
+        }
+    }
+
     return (
         <div className="product-view">
             <div className="product-view__images">
@@ -35,26 +45,83 @@ const ProductView = (props) => {
                     </span>
                 </div>
                 <div className="product-view__info__item">
-                    <span className="product-view__info__item__status">
+                    <span className="product-view__info__item__status product-view__info__item__title">
                         Tình trạng: <span>Còn hàng</span>
                     </span>
                 </div>
                 <div className="product-view__info__item">
                     <span className="product-view__info__item__quantity">
-                        <div
-                            className="product-view__info__item__quantity__btn"
-                            // onClick={() => updateQuantity('minus')}
-                        >
-                            <i className="bx bx-minus"></i>
-                        </div>
-                        <div className="product-view__info__item__quantity__index">{quantity}</div>
-                        <div
-                            className="product-view__info__item__quantity__btn"
-                            // onClick={() => updateQuantity('plus')}
-                        >
-                            <i className="bx bx-plus"></i>
+                        <span className="product-view__info__item__title">Số lượng:</span>
+                        <div className="product-view__info__item__quantity__wrapper">
+                            <div
+                                className="product-view__info__item__quantity__wrapper__btn"
+                                onClick={() => updateQuantity('minus')}
+                            >
+                                <i className="bx bx-minus"></i>
+                            </div>
+                            <div className="product-view__info__item__quantity__wrapper__index">
+                                {quantity}
+                            </div>
+                            <div
+                                className="product-view__info__item__quantity__wrapper__btn"
+                                onClick={() => updateQuantity('plus')}
+                            >
+                                <i className="bx bx-plus"></i>
+                            </div>
                         </div>
                     </span>
+                </div>
+                <div className="product-view__info__item">
+                    <Button size="btn-cart">
+                        <div className="product-view__info__item__btn">
+                            <span>Mua ngay</span>
+                            <span className="product-view__info__item__btn__txt">
+                                đặt hàng giao tận nơi
+                            </span>
+                        </div>
+                    </Button>
+                </div>
+                <div className="product-view__info__item">
+                    <div className="product-view__info__item__hotline product-view__info__item__title">
+                        Gọi đặt mua:{' '}
+                        <strong className="product-view__info__item__hotline__highlight">
+                            0123456789
+                        </strong>{' '}
+                        (miễn phí 8:30 - 21:30).
+                    </div>
+                </div>
+                <div className="product-view__info__item">
+                    <div className="product-view__info__item__service">
+                        <div className="product-view__info__item__service__item">
+                            <img
+                                src="https://bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_2.svg?1649002650564"
+                                alt=""
+                            />
+                            <span>
+                                VOUCHER <span className="txt-highlight">FREESHIP</span> VỚI ĐƠN HÀNG
+                                TỪ <span className="txt-highlight">800.000Đ</span>
+                            </span>
+                        </div>
+                        <div className="product-view__info__item__service__item">
+                            <img
+                                src="https://bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_3.svg?1649002650564"
+                                alt=""
+                            />
+                            <span>
+                                BẢO HÀNH <span className="txt-highlight">1 NĂM</span> DO LỖI NHÀ SẢN
+                                XUẤT
+                            </span>
+                        </div>
+                        <div className="product-view__info__item__service__item">
+                            <img
+                                src="https://bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_4.svg?1649002650564"
+                                alt=""
+                            />
+                            <span>
+                                CAM KẾT <span className="txt-highlight">100% CHÍNH HÃNG</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

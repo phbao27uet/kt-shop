@@ -6,7 +6,7 @@
     }
 
     &__info {
-        padding-left: 20px;
+        padding-left: 40px;
         width: 60%;
 
         &__heading {
@@ -21,6 +21,13 @@
         &__item {
             margin-top: 1.25rem;
 
+            &__title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #1c1c1c;
+                margin-right: 16px;
+            }
+
             &__price {
                 font-size: 20px;
                 font-weight: 600;
@@ -30,29 +37,69 @@
 
             &__status {
                 @include flex(center, flex-start);
-                font-size: 20px;
-                font-weight: 600;
-                color: #1c1c1c;
 
                 span {
                     color: $main-color;
                     margin-left: 8px;
                 }
             }
-            // CSS cho quantity
+
             &__quantity {
                 @include flex(center, flex-start);
-                border: 2px solid $main-color;
-                width: max-content;
 
-                &__btn {
-                    @include flex(center, center);
+                &__wrapper {
+                    @include flex(center, flex-start);
+                    border: 2px solid $main-color;
+                    width: max-content;
+                    margin-left: 1.5rem;
 
-                    $size: 30px;
-                    width: $size;
-                    height: $size;
-                    font-size: 1.5rem;
-                    cursor: pointer;
+                    &__btn {
+                        @include flex(center, center);
+
+                        $size: 30px;
+                        width: $size;
+                        height: $size;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                    }
+
+                    &__index {
+                        @include flex(center, center);
+                        font-size: 1.5rem;
+                        width: 4rem;
+                    }
+                }
+            }
+
+            &__btn {
+                @include flex(center, center);
+                flex-direction: column;
+
+                &__txt {
+                    font-size: 1rem;
+                    color: $txt-second-color;
+                }
+            }
+
+            &__hotline {
+                &__highlight {
+                    color: #00b0f0;
+                    margin: 0 4px;
+                }
+            }
+
+            &__service {
+                &__item {
+                    @include flex(center, flex-start);
+                    gap: 1rem;
+
+                    img {
+                        height: 35px;
+                    }
+                }
+
+                &__item ~ &__item {
+                    margin-top: 8px;
                 }
             }
         }

@@ -34,8 +34,19 @@ const ProductImageSlider = (props) => {
             <Swiper
                 onSwiper={setActiveThumb}
                 spaceBetween={10}
-                slidesPerView={5}
+                slidesPerView={4}
                 modules={[Navigation, Thumbs]}
+                breakpoints={{
+                    600: {
+                        slidesPerView: 5,
+                    },
+                    // 768: {
+                    //     slidesPerView: 4,
+                    // },
+                    // 1024: {
+                    //     slidesPerView: 5,
+                    // },
+                }}
                 className="product-images-slider-thumbs"
             >
                 {props.images.map((item, index) => (

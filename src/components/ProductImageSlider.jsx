@@ -37,15 +37,9 @@ const ProductImageSlider = (props) => {
                 slidesPerView={4}
                 modules={[Navigation, Thumbs]}
                 breakpoints={{
-                    600: {
+                    1024: {
                         slidesPerView: 5,
                     },
-                    // 768: {
-                    //     slidesPerView: 4,
-                    // },
-                    // 1024: {
-                    //     slidesPerView: 5,
-                    // },
                 }}
                 className="product-images-slider-thumbs"
             >

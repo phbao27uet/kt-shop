@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Button from '../components/Button'
 import ShoppingCartItem from '../components/ShoppingCartItem'
 import Breadcrumb from '../components/Breadcrumb'
+import Helmet from '../components/Helmet'
 
 import numberWithCommas from '../utils/numberWithCommas'
 import { getProductCartSelector } from '../redux/selectors'
@@ -42,51 +43,56 @@ const Cart = () => {
     })
 
     return (
-        <div className="cart">
-            <Breadcrumb breadcrumb_lv3="Giỏ hàng" />
-            <h1 className="cart__heading">
-                Giỏ hàng
-                <span className="cart__heading__count">{`( ${totalProducts} sản phẩm )`}</span>
-            </h1>
-            <div className="cart__body">
-                {cartProducts.length > 0 ? (
-                    <div className="cart__body__not-empty">
-                        <div className="cart__body__not-empty__list">
-                            {cartProducts.map((item) => (
-                                <ShoppingCartItem key={item.id} item={item} />
-                            ))}
-                        </div>
-                        <div className="cart__body__not-empty__info">
-                            <div className="cart__body__not-empty__info__total">
-                                <p>Thành tiền:</p>
-                                <p className="cart__body__not-empty__info__total__highlight">
-                                    {numberWithCommas(totalPrice)}
-                                    <span>₫</span>
-                                </p>
+        <Helmet title="Giỏ hàng">
+            <div className="cart">
+                <Breadcrumb breadcrumb_lv3="Giỏ hàng" />
+                <h1 className="cart__heading">
+                    Giỏ hàng
+                    <span className="cart__heading__count">{`( ${totalProducts} sản phẩm )`}</span>
+                </h1>
+                <div className="cart__body">
+                    {cartProducts.length > 0 ? (
+                        <div className="cart__body__not-empty">
+                            <div className="cart__body__not-empty__list">
+                                {cartProducts.map((item) => (
+                                    <ShoppingCartItem key={item.id} item={item} />
+                                ))}
                             </div>
-                            <div className="cart__body__not-empty__info__btn">
-                                <Button size="block" onClick={() => alert('Chức năng sắp được mở')}>
-                                    Thanh toán ngay
-                                </Button>
-                                <Button size="block" onClick={() => navigate('/')}>
-                                    Tiếp tục mua hàng
-                                </Button>
+                            <div className="cart__body__not-empty__info">
+                                <div className="cart__body__not-empty__info__total">
+                                    <p>Thành tiền:</p>
+                                    <p className="cart__body__not-empty__info__total__highlight">
+                                        {numberWithCommas(totalPrice)}
+                                        <span>₫</span>
+                                    </p>
+                                </div>
+                                <div className="cart__body__not-empty__info__btn">
+                                    <Button
+                                        size="block"
+                                        onClick={() => alert('Chức năng sắp được mở')}
+                                    >
+                                        Thanh toán ngay
+                                    </Button>
+                                    <Button size="block" onClick={() => navigate('/')}>
+                                        Tiếp tục mua hàng
+                                    </Button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ) : (
-                    <div className="cart__body__empty">
-                        <img
-                            src="https://bizweb.dktcdn.net/100/436/596/themes/834446/assets/empty-cart.png?1649002650564"
-                            alt=""
-                        />
-                        <Button>
-                            <Link to="/">Tiếp tục mua hàng</Link>
-                        </Button>
-                    </div>
-                )}
+                    ) : (
+                        <div className="cart__body__empty">
+                            <img
+                                src="https://bizweb.dktcdn.net/100/436/596/themes/834446/assets/empty-cart.png?1649002650564"
+                                alt=""
+                            />
+                            <Button>
+                                <Link to="/">Tiếp tục mua hàng</Link>
+                            </Button>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        </Helmet>
     )
 }
 

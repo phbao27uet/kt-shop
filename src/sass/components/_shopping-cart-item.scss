@@ -1,0 +1,92 @@
+.shopping-cart-item {
+    @include flex(center, flex-start);
+    padding: 15px 0;
+    gap: 1rem;
+
+    & ~ & {
+        border-top: 1px solid #f5f5f5;
+    }
+
+    &__image {
+        border: 0.1px solid #c9d6df;
+        border-radius: 8px;
+
+        img {
+            border-radius: 8px;
+            max-height: 180px;
+
+            @include tablet {
+                max-height: 80px;
+            }
+        }
+    }
+
+    &__info {
+        @include flex(center, flex-end);
+        flex-grow: 1;
+        gap: 1rem;
+
+        @include mobile {
+            flex-direction: column;
+            @include flex(flex-start, flex-start);
+            // overflow: hidden;
+        }
+
+        &__name {
+            flex-grow: 1;
+            font-weight: 600;
+
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+            @include tablet {
+                -webkit-line-clamp: 2;
+            }
+        }
+
+        &__price {
+            width: 110px;
+            color: $main-color;
+            font-weight: 600;
+            font-size: 1.5rem;
+
+            span {
+                font-size: 1rem;
+            }
+        }
+
+        &__quantity {
+            width: 120px;
+            @include flex(center, flex-start);
+
+            &__wrapper {
+                @include flex(center, flex-start);
+                border: 2px solid $main-color;
+                width: max-content;
+
+                &__btn {
+                    @include flex(center, center);
+
+                    $size: 30px;
+                    width: $size;
+                    height: $size;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+
+                &__index {
+                    @include flex(center, center);
+                    font-size: 1.5rem;
+                    width: 4rem;
+                }
+            }
+        }
+
+        &__remove {
+            // width: 100px;
+        }
+    }
+}

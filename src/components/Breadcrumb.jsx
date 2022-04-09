@@ -24,26 +24,32 @@ const Breadcrumb = (props) => {
     return (
         <div className="breadcrumb">
             <Link to="/">
-                <span className="breadcrumb__item">Home</span>
+                <span className="breadcrumb__item">Trang chủ</span>
             </Link>
             <span>
                 <i className="bx bx-chevron-right breadcrumb__separator"></i>
             </span>
-
-            <Link to={`/${props.breadcrumb_lv2}`}>
-                <span className="breadcrumb__item ">{_.capitalize(props.breadcrumb_lv2)}</span>
-            </Link>
-            <span>
-                <i className="bx bx-chevron-right breadcrumb__separator"></i>
-            </span>
-
+            {props.breadcrumb_lv2 ? (
+                <>
+                    <Link to={`/${props.breadcrumb_lv2}`}>
+                        <span className="breadcrumb__item ">
+                            {_.capitalize(props.breadcrumb_lv2)}
+                        </span>
+                    </Link>
+                    <span>
+                        <i className="bx bx-chevron-right breadcrumb__separator"></i>
+                    </span>
+                </>
+            ) : (
+                ''
+            )}
             <span className="breadcrumb__item active">{breadcrumbLv3}</span>
         </div>
     )
 }
 
 Breadcrumb.propTypes = {
-    breadcrumb_lv2: PropTypes.string.isRequired,
+    breadcrumb_lv2: PropTypes.string,
     breadcrumb_lv3: PropTypes.string.isRequired,
 }
 

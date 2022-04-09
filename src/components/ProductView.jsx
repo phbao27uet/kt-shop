@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
 
 import ProductImageSlider from './ProductImageSlider'
 import Button from './Button'
 
+import { addItem } from '../redux/shopping-cart/shoppingCartSlice'
+
 import numberWithCommas from '../utils/numberWithCommas'
 
 const ProductView = (props) => {
+    const dispatch = useDispatch()
+
     const { product } = props
     const [images, setImages] = useState([])
     const [quantity, setQuantity] = useState(1)
@@ -30,6 +35,23 @@ const ProductView = (props) => {
         } else if (type === 'plus') {
             setQuantity(quantity + 1)
         }
+    }
+
+    const addToCart = () => {
+        dispatch(
+            addItem({
+                id: product.id,
+                name: product.display_name,
+                slug: product.path,
+                price: product.price,
+                quantity: quantity,
+                image: product.url_thumbs[0],
+            }),
+        )
+
+        alert(
+            `Successfully added to cart: ${product.display_name} Số lượng: ${quantity} ID: ${product.id}`,
+        )
     }
 
     return (
@@ -72,7 +94,7 @@ const ProductView = (props) => {
                     </span>
                 </div>
                 <div className="product-view__info__item">
-                    <Button size="btn-cart">
+                    <Button size="btn-cart" onClick={addToCart}>
                         <div className="product-view__info__item__btn">
                             <span>Mua ngay</span>
                             <span className="product-view__info__item__btn__txt">

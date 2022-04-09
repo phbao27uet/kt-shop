@@ -7,6 +7,12 @@
     &__item {
         font-size: 1.1rem;
         font-weight: 600;
+        // Giới hạn trong 1 dòng
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
     }
 
     &__item.active {

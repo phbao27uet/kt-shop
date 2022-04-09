@@ -13,6 +13,8 @@ export const getSortFilterSelector = (state) => state.sortFilter.value
 
 export const getSlugSelector = (state) => state.product.slug
 
+export const getProductCartSelector = (state) => state.shoppingCart.value
+
 export const getNewKeyboardsSelector = createSelector(getAllKeyboardSelector, (keyboard) => {
     return [keyboard[2], keyboard[6], keyboard[8], keyboard[15]]
 })

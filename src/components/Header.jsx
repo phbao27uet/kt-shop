@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react'
-
+import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Link, useLocation } from 'react-router-dom'
+
+import { useSelector } from 'react-redux'
+import { getProductCartSelector } from '../redux/selectors'
 
 import Logo from './Logo'
 
@@ -28,6 +31,8 @@ const mainNav = [
 ]
 
 const Header = () => {
+    const navigate = useNavigate()
+
     const headerRef = useRef(null)
     const navbarRef = useRef(null)
 
@@ -44,18 +49,33 @@ const Header = () => {
             }
         })
 
-        return () => window.removeEventListener('scroll')
+        // return () => window.removeEventListener('scroll')
     }, [])
 
     const navbarToggle = () => navbarRef.current.classList.toggle('active')
 
+    const goToCart = () => navigate('cart')
+
+    const cartItems = useSelector(getProductCartSelector)
+
+    const [cartProducts, setCartProducts] = useState([])
+
+    const [totalProducts, setTotalProducts] = useState(0)
+
+    useEffect(() => {
+        setCartProducts(cartItems)
+
+        setTotalProducts(
+            cartItems.reduce((totalProducts, item) => {
+                return totalProducts + item.quantity
+            }, 0),
+        )
+    }, [cartItems])
+
     return (
         <div ref={headerRef} className="header">
             <div className="container">
-                <div
-                    className="header__menu__mobile-toggle"
-                    onClick={navbarToggle}
-                >
+                <div className="header__menu__mobile-toggle" onClick={navbarToggle}>
                     <i className="bx bx-menu"></i>
                 </div>
                 <div className="header__logo">
@@ -64,19 +84,14 @@ const Header = () => {
                     </Link>
                 </div>
                 <div ref={navbarRef} className="header__navbar">
-                    <div
-                        className="header__navbar__close"
-                        onClick={navbarToggle}
-                    >
+                    <div className="header__navbar__close" onClick={navbarToggle}>
                         <i className="bx bx-x"></i>
                     </div>
                     {mainNav.map((item, index) => (
                         <div
                             key={index}
                             className={`header__navbar__item ${
-                                activeMainNav?.path === item.path
-                                    ? 'active'
-                                    : ''
+                                activeMainNav?.path === item.path ? 'active' : ''
                             }`}
                             onClick={navbarToggle}
                         >
@@ -86,10 +101,7 @@ const Header = () => {
                         </div>
                     ))}
                 </div>
-                <div
-                    className="header__navbar__layer"
-                    onClick={navbarToggle}
-                ></div>
+                <div className="header__navbar__layer" onClick={navbarToggle}></div>
                 <div className="header__actions">
                     <div className="header__actions__item">
                         <i className="bx bx-search"></i>
@@ -97,7 +109,13 @@ const Header = () => {
                     <div className="header__actions__item">
                         <i className="bx bx-user"></i>
                     </div>
-                    <div className="header__actions__item">
+                    <div
+                        className={`header__actions__item ${pathname === '/cart' ? 'active' : ''}`}
+                        onClick={goToCart}
+                    >
+                        <span className="header__actions__item__count">
+                            <span>{totalProducts}</span>
+                        </span>
                         <i className="bx bx-cart"></i>
                     </div>
                 </div>

@@ -1,10 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import {
-    getKeyboardsSelector,
-    getNewKeyboardsSelector,
-} from '../redux/selectors'
+import { getKeyboardsSelector, getNewKeyboardsSelector } from '../redux/selectors'
 
 import Helmet from '../components/Helmet'
 import Slider from '../components/Slider'
@@ -58,8 +55,9 @@ const Home = () => {
                             ? newKeyboardData.map((item, index) => (
                                   <ProductCard
                                       key={index}
+                                      id={item?.id}
                                       img1={item?.url_ava}
-                                      img2={item?.url_thumbs[1]}
+                                      img2={item?.url_thumbs[0]}
                                       name={item?.display_name}
                                       price={item?.price}
                                       slug={item?.path}
@@ -80,6 +78,7 @@ const Home = () => {
                             ? keyboardData.map((item, index) => (
                                   <ProductCard
                                       key={index}
+                                      id={item?.id}
                                       img1={item?.url_ava}
                                       img2={item?.url_thumbs[1]}
                                       name={item?.display_name}

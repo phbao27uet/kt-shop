@@ -5,6 +5,7 @@ import keyboardReducer from './keyboard/keyboardSlice'
 import keycapReducer from './keycap/keycapSlice'
 import switchReducer from './switch/switchSlice'
 import sortFilterReducer from './sort-filter/sortFilterSlice'
+import shoppingCartReducer from './shopping-cart/shoppingCartSlice'
 
 const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
         keycap: keycapReducer,
         switch: switchReducer,
         sortFilter: sortFilterReducer,
+        shoppingCart: shoppingCartReducer,
     },
 })
 

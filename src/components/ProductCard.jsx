@@ -2,11 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
+import { addItem } from '../redux/shopping-cart/shoppingCartSlice'
+
 import Button from './Button'
 
 import numberWithCommas from '../utils/numberWithCommas'
 
 const ProductCard = (props) => {
+    const dispatch = useDispatch()
+
+    const addToCart = () => {
+        dispatch(
+            addItem({
+                id: props.id,
+                name: props.name,
+                slug: props.slug,
+                price: props.price,
+                quantity: 1,
+                image: props.img2,
+            }),
+        )
+        alert(`Successfully added to cart: ${props.name} Số lượng: ${1} ID: ${props.id}`)
+    }
+
     return (
         <div className="product-card">
             <Link to={`/catalog/${props.slug}`}>
@@ -23,7 +43,9 @@ const ProductCard = (props) => {
                 </div>
             </Link>
             <div className="product-card__btn">
-                <Button size="block">Chọn mua</Button>
+                <Button size="block" onClick={addToCart}>
+                    Chọn mua
+                </Button>
             </div>
         </div>
     )

@@ -9,14 +9,13 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
 const ProductImageSlider = (props) => {
-    const [activeThumb, setActiveThumb] = useState()
+    const [activeThumb, setActiveThumb] = useState(null)
 
     // console.log(props.images)
 
     return (
         <>
             <Swiper
-                loop={true}
                 spaceBetween={10}
                 navigation={true}
                 modules={[Navigation, Thumbs]}

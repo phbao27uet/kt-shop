@@ -31,7 +31,7 @@ const Slider = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 pagination={{

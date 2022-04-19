@@ -8,6 +8,7 @@ import SwitchPage from '../pages/SwitchPage'
 import Product from '../pages/Product'
 import Cart from '../pages/Cart'
 import Contact from '../pages/Contact'
+import SearchPage from '../pages/SearchPage'
 
 const CreateRoutes = () => {
     return (
@@ -19,6 +20,7 @@ const CreateRoutes = () => {
             <Route path="switch" element={<SwitchPage />} />
             <Route path="cart" element={<Cart />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="search" element={<SearchPage />} />
         </Routes>
     )
 }

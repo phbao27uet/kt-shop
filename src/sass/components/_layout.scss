@@ -8,5 +8,10 @@
         font-size: 2rem;
         font-weight: 600;
         letter-spacing: 2.4px;
+
+        @include mobile {
+            font-size: 1.25rem;
+            text-align: center;
+        }
     }
 }

@@ -24,9 +24,12 @@ const Layout = () => {
     }, [])
 
     useEffect(() => {
+        let timerId
         if (!loading) {
-            setTimeout(() => setLoading(loading), 1500)
+            timerId = setTimeout(() => setLoading(loading), 1500)
         }
+
+        return () => clearTimeout(timerId)
     }, [loading])
 
     const antIcon = <LoadingOutlined style={{ fontSize: 40 }} spin />
@@ -38,7 +41,7 @@ const Layout = () => {
                     <div>
                         <Spin indicator={antIcon} />
                     </div>
-                    <div className="loading__txt">Đợi mình 1 xíu nhé sắp xong rùi!!!</div>
+                    <div className="loading__txt">Sắp xong rùi!!!</div>
                 </div>
             ) : (
                 <>

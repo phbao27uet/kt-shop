@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { getProductCartSelector } from '../redux/selectors'
 
 import Logo from './Logo'
+import Search from './ModalSearch'
 
 const mainNav = [
     {
@@ -72,55 +73,75 @@ const Header = () => {
         )
     }, [cartItems])
 
+    const [visible, setVisible] = useState(false)
+
+    const toggleSearch = () => {
+        setVisible(!visible)
+    }
+
+    const handleCancel = () => {
+        setVisible(false)
+    }
+
+    const handleOk = () => {
+        navigate('search')
+        setVisible(false)
+    }
+
     return (
-        <div ref={headerRef} className="header">
-            <div className="container">
-                <div className="header__menu__mobile-toggle" onClick={navbarToggle}>
-                    <i className="bx bx-menu"></i>
-                </div>
-                <div className="header__logo">
-                    <Link to="/">
-                        <Logo />
-                    </Link>
-                </div>
-                <div ref={navbarRef} className="header__navbar">
-                    <div className="header__navbar__close" onClick={navbarToggle}>
-                        <i className="bx bx-x"></i>
+        <>
+            <div ref={headerRef} className="header">
+                <div className="container">
+                    <div className="header__menu__mobile-toggle" onClick={navbarToggle}>
+                        <i className="bx bx-menu"></i>
                     </div>
-                    {mainNav.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`header__navbar__item ${
-                                activeMainNav?.path === item.path ? 'active' : ''
-                            }`}
-                            onClick={navbarToggle}
-                        >
-                            <Link to={item.path}>
-                                <span>{item.display_name}</span>
-                            </Link>
+                    <div className="header__logo">
+                        <Link to="/">
+                            <Logo />
+                        </Link>
+                    </div>
+                    <div ref={navbarRef} className="header__navbar">
+                        <div className="header__navbar__close" onClick={navbarToggle}>
+                            <i className="bx bx-x"></i>
                         </div>
-                    ))}
-                </div>
-                <div className="header__navbar__layer" onClick={navbarToggle}></div>
-                <div className="header__actions">
-                    <div className="header__actions__item">
-                        <i className="bx bx-search"></i>
+                        {mainNav.map((item, index) => (
+                            <div
+                                key={index}
+                                className={`header__navbar__item ${
+                                    activeMainNav?.path === item.path ? 'active' : ''
+                                }`}
+                                onClick={navbarToggle}
+                            >
+                                <Link to={item.path}>
+                                    <span>{item.display_name}</span>
+                                </Link>
+                            </div>
+                        ))}
                     </div>
-                    <div className="header__actions__item">
-                        <i className="bx bx-user"></i>
-                    </div>
-                    <div
-                        className={`header__actions__item ${pathname === '/cart' ? 'active' : ''}`}
-                        onClick={goToCart}
-                    >
-                        <span className="header__actions__item__count">
-                            <span>{totalProducts}</span>
-                        </span>
-                        <i className="bx bx-cart"></i>
+                    <div className="header__navbar__layer" onClick={navbarToggle}></div>
+                    <div className="header__actions">
+                        <div className="header__actions__item" onClick={toggleSearch}>
+                            <i className="bx bx-search"></i>
+                        </div>
+                        <div className="header__actions__item">
+                            <i className="bx bx-user"></i>
+                        </div>
+                        <div
+                            className={`header__actions__item ${
+                                pathname === '/cart' ? 'active' : ''
+                            }`}
+                            onClick={goToCart}
+                        >
+                            <span className="header__actions__item__count">
+                                <span>{totalProducts}</span>
+                            </span>
+                            <i className="bx bx-cart"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Search visible={visible} handleCancel={handleCancel} handleOk={handleOk} />
+        </>
     )
 }
 

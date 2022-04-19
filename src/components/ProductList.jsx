@@ -13,6 +13,7 @@ const ProductList = (props) => {
                 {products.map((item, index) => (
                     <ProductCard
                         key={index}
+                        id={item.id}
                         img1={item.url_ava}
                         img2={item.url_thumbs[1]}
                         name={item.display_name}

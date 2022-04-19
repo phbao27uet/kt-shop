@@ -15,6 +15,8 @@ export const getSlugSelector = (state) => state.product.slug
 
 export const getProductCartSelector = (state) => state.shoppingCart.value
 
+export const getTextSearchSelector = (state) => state.product.textSearch
+
 export const getNewKeyboardsSelector = createSelector(getAllKeyboardSelector, (keyboard) => {
     return [keyboard[2], keyboard[6], keyboard[8], keyboard[15]]
 })
@@ -91,6 +93,28 @@ export const getProductBySlugSelector = createSelector(
         const product = keyboard.find((item) => item.path === slug)
 
         return product || {}
+    },
+)
+
+export const productRemainingSelector = createSelector(
+    getAllKeyboardSelector,
+    getTextSearchSelector,
+    (keyboard, textSearch) => {
+        // console.log(textSearch)
+        const arrTextSearch = textSearch.split(' ')
+
+        const res = textSearch
+            ? keyboard.filter((item) => {
+                  const check = arrTextSearch.find((e) =>
+                      item.display_name.toLowerCase().includes(e.toLowerCase()),
+                  )
+
+                  return check
+              })
+            : []
+
+        // console.log({ res })
+        return res
     },
 )
 

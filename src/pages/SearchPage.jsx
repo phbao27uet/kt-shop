@@ -75,6 +75,9 @@ const SearchPage = () => {
                     </>
                 ) : (
                     <>
+                        <h2>
+                            CÓ <strong>{products.length}</strong> KẾT QUẢ TÌM KIẾM PHÙ HỢP
+                        </h2>
                         <Grid col={5} mdCol={3} smCol={2} gap={20}>
                             {products.map((item, index) => (
                                 <ProductCard
